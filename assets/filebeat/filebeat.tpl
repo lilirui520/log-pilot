@@ -5,6 +5,11 @@
       - {{ .HostDir }}/{{ .File }}
   scan_frequency: 10s
   fields_under_root: true
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+  multiline.timeout: 10s
+  multiline.max_lines: 10000
   {{if .Stdout}}
   docker-json: true
   {{end}}
